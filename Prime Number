@@ -1,0 +1,18 @@
+#  This code gets 'n' as an input and finds the prime numbers that are lower than this
+#  number.
+
+import math
+n = int(input('Enter a number: '))
+if n<=2:
+    print('Please re-enter a valid number (n must be higher than 2).')
+l = []
+for i in range(2,n):
+    flag = 1
+    for j in range(2,math.floor(math.sqrt(i))+1):
+        if i%j == 0:
+            flag = 0
+            break
+    if flag == 1:
+        l.append(i)
+if n>2:
+    print('The prime numbers lower than ', n, ':', l)
