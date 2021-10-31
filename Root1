@@ -1,0 +1,22 @@
+#  This code gets two boundaries 'a' and 'b' as inputs and finds the root of the
+#  equation 'y = 2*sin(x/2)-1' within the range between 'a' and 'b' using the bisection
+#  method.
+
+import math
+a = float(input('Enter the lower boundary: '))
+b = float(input('Enter the upper boundary: '))
+A = a
+B = b
+c = (a+b)/2
+i = 0
+while abs(2*math.sin(c/2)-1)>10**-5 and i<1000:
+    if (2*math.sin(a/2)-1)*(2*math.sin(c/2)-1)<0:
+        b = c
+    else:
+        a = c
+    c = (a+b)/2
+    i = i+1
+if i == 1000:
+    print('There is no root in this range.')
+else:
+    print('The root in the range between', A, 'and', B, 'is', c)
